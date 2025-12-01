@@ -82,3 +82,24 @@ def repeat(str, count):
     for i in range(count):
         result += str
     return result
+
+# Task 7
+def student_scores(mode, **kwargs):
+    if not kwargs:
+        # Handle case with no students
+        return None
+
+    if mode == "best":
+        # Find the pair with the highest score
+        best_student = max(kwargs, key=kwargs.get)
+        return best_student
+
+    elif mode == "mean":
+        # Calculate the average
+        scores = kwargs.values()
+        return sum(scores) / len(scores)
+
+    else:
+        # Handle invalid mode
+        return None
+
