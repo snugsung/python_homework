@@ -54,3 +54,24 @@ def data_type_conversion(value, data_type):
     except (ValueError, TypeError):
         # Happens if conversion is impossible
         return f"You can't convert {value} into a {data_type}."
+
+# Task 5
+def grade(*args):
+    try:
+        # Calculate average
+        average = sum(args) / len(args)
+
+        # Determine letter grade based on the average
+        if average >= 90:
+            return "A"
+        elif average >= 80:
+            return "B"
+        elif average >= 70:
+            return "C"
+        elif average >= 60:
+            return "D"
+        else:
+            return "F"
+    except Exception:
+        # For invalid data
+        return "Invalid data was provided."
