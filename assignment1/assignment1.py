@@ -79,6 +79,7 @@ def grade(*args):
 # Task 6
 def repeat(str, count):
     result = ""
+
     for i in range(count):
         result += str
     return result
@@ -122,3 +123,16 @@ def titleize(text):
                 result.append(word.capitalize())
 
     return " ".join(result)
+
+# Task 9
+def hangman(secret, guess):
+    result = ""
+
+    for letter in secret:
+        if letter in guess:
+            result += letter
+        else:
+            result += "_"
+
+    return result
+
