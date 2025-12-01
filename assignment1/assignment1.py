@@ -136,3 +136,35 @@ def hangman(secret, guess):
 
     return result
 
+# Task 10
+def pig_latin(text):
+    vowels = "aeiou"
+    words = text.split()
+    result_words = []
+
+    for word in words:
+        # Rule 1: starts with a vowel
+        if word[0] in vowels:
+            result_words.append(word + "ay")
+            continue
+
+        # Rules 2 & 3: starts with consonant(s), with special handling for "qu"
+        i = 0
+        while i < len(word) and word[i] not in vowels:
+            # Special case: "qu" acts like a single consonant
+            if word[i] == "q" and i + 1 < len(word) and word[i + 1] == "u":
+                i += 2
+                break
+            i += 1
+
+        # Split into consonant cluster and the rest
+        consonant_cluster = word[:i]
+        rest = word[i:]
+
+        # If no vowel found, just treat whole word as consonant cluster
+        if rest == "":
+            result_words.append(word + "ay")
+        else:
+            result_words.append(rest + consonant_cluster + "ay")
+
+    return " ".join(result_words)
