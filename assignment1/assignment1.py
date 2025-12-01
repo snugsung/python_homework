@@ -75,3 +75,10 @@ def grade(*args):
     except Exception:
         # For invalid data
         return "Invalid data was provided."
+    
+# Task 6
+def repeat(str, count):
+    result = ""
+    for i in range(count):
+        result += str
+    return result
