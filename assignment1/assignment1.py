@@ -37,3 +37,20 @@ def calc(a, b, operation="multiply"):
     except TypeError:
         # Raised when operand types don't work together
         return "You can't multiply those values!"
+    
+# Task 4
+def data_type_conversion(value, data_type):
+    try:
+        match data_type:
+            case "int":
+                return int(value)
+            case "float":
+                return float(value)
+            case "str":
+                return str(value)
+            case _:
+                # Unknown type
+                raise ValueError(f"Unknown data type: {data_type}")
+    except (ValueError, TypeError):
+        # Happens if conversion is impossible
+        return f"You can't convert {value} into a {data_type}."
