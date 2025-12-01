@@ -103,3 +103,22 @@ def student_scores(mode, **kwargs):
         # Handle invalid mode
         return None
 
+# Task 8
+def titleize(text):
+    little_words = {"a", "on", "an", "the", "of", "and", "is", "in"}
+
+    words = text.split()
+    result = []
+
+    for i, word in enumerate(words):
+        # Always capitalize the first and last word
+        if i == 0 or i == len(words) - 1:
+            result.append(word.capitalize())
+        else:
+            # Capitalize unless they are "little words"
+            if word.lower() in little_words:
+                result.append(word.lower())
+            else:
+                result.append(word.capitalize())
+
+    return " ".join(result)
